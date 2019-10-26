@@ -38,20 +38,15 @@ namespace DatingApp.API.Controllers
                 username = userForRegisterDto.Username
             };
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
-            return StatusCode(201);
-
-
-
-
-        }
+            return StatusCode(201); }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
-
+        
             var userForRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
             if (userForRepo == null)
-                return Unauthorized();
+                return Unauthorized(); 
             var claims = new[]
                  {
            new Claim(ClaimTypes.NameIdentifier, userForRepo.id.ToString()),
@@ -68,20 +63,9 @@ namespace DatingApp.API.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
         return Ok(new {
             token = tokenHandler.WriteToken(token)
+           });
 
-
-
-
-        });
-
-
-}
-
-
-
-
-
-
-    }
+            }
+   }
 
 }
