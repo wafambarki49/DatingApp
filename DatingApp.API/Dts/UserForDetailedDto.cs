@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
+using DatingApp.API.Models;
 
-namespace DatingApp.API.Models
+namespace DatingApp.API.Dts
 {
-    public class User
+    public class UserForDetailedDto
     {
-      
+        
         public int id { get; set; }
         public string username { get; set; }
-        public byte[] passwordHash { get; set; }
-        public byte[] passwordSalt { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public int Age { get; set; }
         public DateTime Created { get; set; }
         public DateTime LastActive { get; set; }
         public string gender { get; set; }
@@ -20,14 +19,8 @@ namespace DatingApp.API.Models
         public string Interest { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-        public ICollection <Photo> Photos { get; set; }
-
-
-
-
-
-
-
+        public string PhotoUrl { get; set; }
+         public ICollection <PhotoForDetailedDto> Photos { get; set; }
 
 
     }
