@@ -11,9 +11,7 @@ export class HomeComponent implements OnInit {
   values: any;
   constructor(private http: HttpClient) { }
 
-  ngOnInit() {
-   
-  }
+  ngOnInit() {}
   registerToggle() {
 this.registerMode = true;
 }
